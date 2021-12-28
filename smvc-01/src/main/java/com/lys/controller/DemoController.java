@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DemoController {
     @RequestMapping("/d1")
     public String demoString(){
-        return "/WEB-INF/jsp/demo.jsp";
+        return "demo";
+    }
+    @RequestMapping("/user")
+    public String user() {
+        return "user/showUser";
     }
 }
