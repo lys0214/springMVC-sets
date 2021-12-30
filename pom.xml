@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>smvc-01</module>
+    <module>smvc-02-mybatis</module>
   </modules>
   <packaging>pom</packaging>
 

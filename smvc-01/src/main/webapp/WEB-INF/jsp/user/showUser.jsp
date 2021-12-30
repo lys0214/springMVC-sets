@@ -11,6 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-  User:${name}
+<h2>
+    <a href="/">返回首页</a>
+</h2>
+<br>
+
+  User-name:${user.name}
+  <br>
+  user-password:${user.password}
 </body>
 </html>
