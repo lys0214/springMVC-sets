@@ -17,7 +17,7 @@
 </h2>
 <br>
 
-<form action="/upload" enctype="multipart/form-data" method="post">
+<form action="/upload" enctype="multipart/form-data" method="POST">
     <input type="file" name="file"/>
     <br>
     <input type="submit" value="上传">

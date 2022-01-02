@@ -76,7 +76,7 @@ public class FileController {
      * @return
      * @throws IOException
      */
-    /*@RequestMapping("/upload")
+    @RequestMapping("/upload")
     public String upload( @RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
     //    获取文件名
         String filename = file.getOriginalFilename();
@@ -86,7 +86,7 @@ public class FileController {
         }
         System.out.println("上传的文件名是:" + filename);
     //    默认保存路径
-        String url = "src/main/java/com/lys/upload";
+        String url = "F:\\GitHub\\springMVC-sets\\smvc-01\\src\\main\\java\\com\\lys\\upload";
         File filePath = new File(url);
     //   文件输入流
         InputStream is = file.getInputStream();
@@ -102,58 +102,5 @@ public class FileController {
         os.close();
         is.close();
         return "redirect:/index.jsp";
-    }*/
-
-    @RequestMapping("/upload")
-    public String upload(Model model,@RequestParam("file") MultipartFile file,HttpServletRequest request) {
-        // 强制转换
-        MultipartHttpServletRequest req = (MultipartHttpServletRequest)request;
-//		req.getParamter
-        if(file!=null&&!file.isEmpty()) {
-            // 保存服务器文件的名字
-            String serverFileName = "";
-            String fileDir = "fileupload";
-            String serverFilePath = request.getServletContext().getRealPath("/");
-
-            // 上传的文件
-            File uploadpath = new File(serverFilePath + "/fileupload");
-            System.out.println("路径："+uploadpath.getPath());
-
-            if (!uploadpath.exists()) {
-                uploadpath.mkdirs();
-            }
-
-//  	    获取文件名字   新建文件.jpg   20210108152054123.jpg
-            String  fileName = file.getOriginalFilename();
-            //  获取文件后缀名  带点
-            String suffix = fileName.substring(fileName.lastIndexOf("."));
-            // 获取时间
-            Date date = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-            // 获取前缀
-            String prefix = sdf.format(date);
-            //  以UUID
-//			UUID uuid = UUID.randomUUID();
-//			String prefix = uuid.toString().replaceAll("-", "");
-            // 新的文件名
-            serverFileName = prefix+suffix;
-            serverFilePath = request.getServletContext().getRealPath("/")+fileDir + "/" + serverFileName;
-            //           输出
-            System.out.println(serverFilePath);
-
-            try {
-                OutputStream out = new FileOutputStream(serverFilePath);
-                byte[] bt = file.getBytes();
-                out.write(bt);
-                out.flush();
-                out.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-//	        model.addAttribute("msg", "上传成功");
-            req.setAttribute("msg", "上传成功");
-        }
-        return "file/upload";
     }
 }

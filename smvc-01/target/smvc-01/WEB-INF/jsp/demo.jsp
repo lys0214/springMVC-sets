@@ -15,6 +15,6 @@
     <a href="/">返回首页</a>
 </h2>
 <br>
-    demo！！！
+    ${msg}
 </body>
 </html>

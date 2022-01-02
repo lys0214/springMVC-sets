@@ -19,7 +19,6 @@
 用户名：<input type="name" id="name">
 </body>
 
-
 <script>
     $(function (){
         console.log("页面ok");

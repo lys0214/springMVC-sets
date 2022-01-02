@@ -14,6 +14,9 @@
     <a href="/demo/user">跳转显示用户信息页</a>
     <br>
     <a href="/toUpLoad">跳转上传页</a>
+
+    <br>
+    <a href="/toResiter">跳转---异步请求检查</a>
 </h3>
 </body>
 </html>
